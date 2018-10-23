@@ -406,6 +406,7 @@ main[role="dashboard"] #reminder .record-form form p button {
 main[role="dashboard"] .container select {
   position: absolute;
   left: 80%;
+  padding-bottom: 20px;
   top: 20px;
   width: 100px;
   height: 35px;
