@@ -92,3 +92,423 @@ main #sign-in-form {
   border: 1px solid rgba(81, 203, 238, 1);
 }
 
+header[role="banner"] {
+  position: fixed;
+  width: 100%;
+  height: 54px;
+  z-index: 999;
+  top: 0;
+  border-bottom: 1px solid #fff;
+  background-color: #2a3542;
+}
+
+header[role="banner"] h2 {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  color: #fff;
+}
+
+header[role="banner"] #hamburger {
+  position: absolute;
+  top: 8px;
+  margin-left: 110px;
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+header[role="banner"] ul {
+  display: flex;
+  float: right;
+  position: relative;
+}
+
+header[role="banner"] ul li {
+  display: inline;
+  margin-right: 30px;
+}
+
+header[role="banner"] ul li a img {
+  height: 40ox;
+  width: 40px;
+  top: 5px;
+  position: relative;
+  border-radius: 50%;
+}
+
+header[role="banner"] ul li .logout {
+  color: #fff;
+  top: 15px;
+  position: relative;
+  text-decoration: none;
+}
+
+header[role="banner"] ul li .logout::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: "\f2f5";
+  margin-right: 2px;
+}
+
+nav[role="navigation"] {
+  position: fixed;
+  top: 34px;
+  overflow: hidden;
+  width: 250px;
+}
+
+nav[role="navigation"] .main-navigation {
+  top: 20px;
+  margin: 0;
+  padding-top: 30px;
+  position: relative;
+  background-color: #2a3542;
+  height: 96vh;
+}
+
+nav[role="navigation"] ul li:hover {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  background-color: rgba(100, 100, 100, 0.5);
+}
+
+nav[role="navigation"] ul li a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  font-weight: 500;
+  color: #fff;
+  font-size: 20px;
+}
+
+nav[role="navigation"] ul li .dropdown {
+  visibility: hidden;
+  display: none;
+  transition: visibility 1s ease-in;
+  left: 0;
+  width: 100%;
+}
+
+nav[role="navigation"] ul li .show {
+  visibility: visible;
+  display: block;
+  transition: visibility 1s ease-in;
+  left: 0;
+  width: 100%;
+}
+
+nav[role="navigation"] ul li ul li a {
+  margin: 0;
+  padding-top: 8px;
+  font-size: 16px;
+  color: rgba(168, 163, 163, 0.9);
+}
+
+nav[role="navigation"] ul li:hover>ul,
+nav[role="navigation"] ul li ul:hover {
+  transition-delay: 0s, 0s, 0.3s;
+  visibility: visible;
+  display: block;
+}
+
+nav[role="navigation"] ul li ul li {
+  clear: both;
+  padding-left: 40px;
+}
+
+.active {
+  background-color: rgba(100, 100, 100, 0.5);
+  border-bottom: 1px solid white;
+}
+
+.itemSelect {
+  background-color: rgba(100, 100, 100, 0.5);
+}
+
+.dashboard .element::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: "\f3fd";
+  margin-right: 8px;
+}
+
+.available-products .element::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: "\f54e";
+  margin-right: 8px;
+}
+
+.sales-record .element::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: "\f012";
+  margin-right: 8px;
+}
+
+.products-stats .element::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: "\f1fe";
+  margin-right: 8px;
+}
+
+.modify-shop .element::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: "\f552";
+  margin-right: 8px;
+}
+
+.attendants-profile .element::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: "\f0c0";
+  margin-right: 8px;
+}
+
+main[role="dashboard"] {
+  position: relative;
+  margin-left: 250px;
+  top: 54px;
+  color: #333;
+  width: calc(100% - 250px);
+}
+
+main[role="dashboard"] .container {
+  position: relative;
+  max-width: 1200px;
+  top: 40px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+main[role="dashboard"] .container .category-heading {
+  margin: 40px;
+}
+
+main[role="dashboard"] .welcome {
+  position: relative;
+  max-width: 1200px;
+  top: 40px;
+  margin: 0 auto;
+  padding: 1em;
+  line-height: 1.6;
+  background: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+main[role="dashboard"] #reminder {
+  position: relative;
+  max-width: 1200px;
+  top: 40px;
+  margin: 0 auto;
+  padding: 1em;
+  line-height: 1.6;
+  font-size: 19px;
+}
+
+main[role="dashboard"] #reminder .record-form {
+  top: 60px;
+}
+
+main[role="dashboard"] #reminder .record-form form {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+  top: 0px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+}
+
+main[role="dashboard"] #reminder .record-form form label {
+  display: block;
+}
+
+main[role="dashboard"] #reminder .record-form form p input {
+  height: 30px;
+  width: 100%;
+}
+
+main[role="dashboard"] #reminder .record-form form p button {
+  height: 30px;
+  width: 100%;
+  margin-top: 30px;
+  background: green;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+}
+
+.btn {
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  width: 77px;
+  height: 30px;
+  padding: 0;
+  margin: 5px;
+}
+
+.remove {
+  background: lightcoral;
+}
+
+.admin {
+  background: #008cba;
+}
+
+.edit {
+  background: green;
+}
+
+main[role="dashboard"] .container select {
+  position: absolute;
+  left: 80%;
+  top: 20px;
+  width: 100px;
+  height: 35px;
+}
+
+main[role="dashboard"] .container .profile-area {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 35px;
+  width: inherit;
+  margin: 0 auto;
+}
+
+main[role="dashboard"] .container .record-stat {
+  width: inherit;
+}
+
+main[role="dashboard"] .container .record-stat img {
+  display: block;
+  margin: auto;
+}
+
+.profile {
+  padding: 10px;
+  border-radius: 5px;
+  display: block;
+  position: relative;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2), 0px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.product-stat {
+  width: 80%;
+  height: 70%;
+}
+
+.product-image {
+  height: 250px;
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 80%;
+  bottom: 0;
+  left: 10px;
+  right: 0;
+  height: 50px;
+  width: 360px;
+  opacity: 0;
+  transform: scale(0.2);
+  text-align: center;
+  align-items: center;
+  transition: 0.5s ease;
+  color: #fff;
+  background-color: #008cba;
+}
+
+.profile:hover .overlay {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.overlay p {
+  display: inline-block;
+  font-size: 25px;
+}
+
+.overlay .about span {}
+
+.overlay .about .price {
+  margin-top: 15px;
+}
+
+.overlay .about i {
+  margin-top: 15px;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.test {
+  display: flex !important;
+  text-align: center;
+  justify-content: space-around;
+}
+
+table {
+  margin-top: 45px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+td img {
+  height: 50px;
+  width: 50px;
+}
+
+tr:nth-child(even) {
+  background-color: #eee;
+}
+
+main[role="dashboard"] .container .attendants-stats {
+  margin-top: 45px;
+}
+
+@media only screen and (max-width: 600px) {
+  header[role="banner"] #hamburger {
+    display: block;
+  }
+
+  main[role="dashboard"] .welcome,
+  main[role="dashboard"] #reminder,
+  main[role="dashboard"] .container {
+    width: 100vw;
+    margin: 0 auto;
+  }
+}
