@@ -380,10 +380,15 @@ main[role="dashboard"] #reminder .record-form form p button {
   cursor: pointer;
   color: #fff;
   border: none;
-  width: 77px;
+  width: 79px;
   height: 30px;
   padding: 0;
+  border-radius: 5px;
   margin: 5px;
+}
+
+.checkout {
+  background: #008cba;
 }
 
 .remove {
@@ -391,11 +396,11 @@ main[role="dashboard"] #reminder .record-form form p button {
 }
 
 .admin {
-  background: #008cba;
+  background: green;
 }
 
 .edit {
-  background: green;
+  background: #008cba;
 }
 
 main[role="dashboard"] .container select {
