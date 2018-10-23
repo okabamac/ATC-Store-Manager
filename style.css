@@ -243,12 +243,6 @@ nav[role="navigation"] ul li ul li {
   margin-right: 8px;
 }
 
-.available-products .element::before {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 600;
-  content: "\f54e";
-  margin-right: 8px;
-}
 
 .sales-record .element::before {
   font-family: "Font Awesome 5 Free";
@@ -257,10 +251,10 @@ nav[role="navigation"] ul li ul li {
   margin-right: 8px;
 }
 
-.products-stats .element::before {
+.modify-shop .element::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 600;
-  content: "\f1fe";
+  content: "\f552";
   margin-right: 8px;
 }
 
@@ -268,6 +262,27 @@ nav[role="navigation"] ul li ul li {
   font-family: "Font Awesome 5 Free";
   font-weight: 600;
   content: "\f552";
+  margin-right: 8px;
+}
+
+.carted .element::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: "\f217";
+  margin-right: 8px;
+}
+
+.all-products .element::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: "\f58d";
+  margin-right: 8px;
+}
+
+.recorded .element::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: "\f2b9";
   margin-right: 8px;
 }
 
