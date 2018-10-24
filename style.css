@@ -404,9 +404,9 @@ main[role="dashboard"] #reminder .record-form form p button {
 }
 
 main[role="dashboard"] .container select {
-  position: absolute;
+  position: relative;
   left: 80%;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
   top: 20px;
   width: 100px;
   height: 35px;
@@ -439,6 +439,8 @@ main[role="dashboard"] .container .record-stat img {
 
 .product-stat {
   width: 80%;
+  display: block;
+  margin: auto
   height: 70%;
 }
 
@@ -489,13 +491,13 @@ main[role="dashboard"] .container .record-stat img {
 }
 
 .test {
+  padding: 10px;
   display: flex !important;
   text-align: center;
   justify-content: space-around;
 }
 
 table {
-  margin-top: 45px;
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
