@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "Helvetica Nue";
+  font-family: 'Cardo', serif;
   color: #ffffff;
   background-color: #f8f8ff;
 }
@@ -26,8 +26,10 @@ nav[role="login"] {
 nav h2 {
   text-align: center;
   top: 5px;
+  font-family: 'Cardo', serif;
+  font-size: 25px;
   margin: 12px auto;
-  font-weight: 45;
+  font-weight: 150;
   color: gainsboro;
 }
 
@@ -351,7 +353,7 @@ main[role="dashboard"] #reminder .record-form form {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px;
   top: 0px;
-  font-family: arial, sans-serif;
+  font-family: 'Charmonman', cursive;
   border-collapse: collapse;
 }
 
@@ -440,8 +442,7 @@ main[role="dashboard"] .container .record-stat img {
 .product-stat {
   width: 80%;
   display: block;
-  margin: auto
-  height: 70%;
+  margin: auto height: 70%;
 }
 
 .product-image {
@@ -498,7 +499,6 @@ main[role="dashboard"] .container .record-stat img {
 }
 
 table {
-  font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -517,6 +517,11 @@ td img {
 
 tr:nth-child(even) {
   background-color: #eee;
+}
+
+input {
+  font-family: 'Roboto', serif;
+  font-size: 15px;
 }
 
 main[role="dashboard"] .container .attendants-stats {
