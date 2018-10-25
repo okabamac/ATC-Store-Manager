@@ -1,0 +1,16 @@
+{
+  "spec_dir": "spec",
+  "spec_files": [
+    "allSalesSpec.js",
+    "productByIdSpec.js",
+    "allProductsSpec.js",
+    "postProductSpec.js",
+    "postSaleSpec.js",
+    "saleByIdSpec.js"
+  ],
+  "helpers": [
+    "helpers/**/*.js"
+  ],
+  "stopSpecOnExpectationFailure": false,
+  "random": true
+}
