@@ -2,10 +2,10 @@
   "name": "atc-sm",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
+    "test": "--exec babel-node jasmine",
     "lint": "eslint",
-    "test": "jasmine",
     "start": "nodemon --exec babel-node server.js"
   },
   "repository": {
@@ -20,7 +20,7 @@
   "homepage": "https://github.com/prizemac/ATC-Store-Manager#readme",
   "devDependencies": {
     "eslint": "^5.7.0",
-    "jasmine": "^3.2.0",
+    "jasmine-es6": "^0.4.3",
     "nodemon": "^1.18.4"
   },
   "dependencies": {
@@ -29,6 +29,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "request": "^2.88.0"
   }
 }
