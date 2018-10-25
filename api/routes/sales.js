@@ -2,7 +2,7 @@ import express from "express";
 let router = express.Router();
 import salesDB from "../model/data/mockRecordDb";
 
-//Handle GET request for all products
+//Handle GET request for all sales
 router.get("/", (req, res, next) => {
     res.status(200).json({
         message: "success",
@@ -10,20 +10,24 @@ router.get("/", (req, res, next) => {
     });
 });
 
-/*router.get("/:saleId", (req, res, next) => {
-    const id = req.params.productId;
-    if (id === "special") {
-        res.status(200).json({
-            message: "You discovered the special ID",
-            id: id
-        });
-    } else {
-        res.status(200).json({
-            message: "You passed a wrong ID"
-        });
-    }
+//Handle GET Request for a specific order
+router.get("/:saleId", (req, res, next) => {
+    const id = parseInt(req.params.saleId);
+    salesDB.map((order) => {
+        if (order.id === id) {
+            return res.status(200).send({
+                success: "true",
+                message: "Product retrieved successfully",
+                order,
+            });
+        }
+    });
+    return res.status(404).send({
+        success: "false",
+        message: "ID does not exist",
+    });
 });
-*/
+
 //Handle Post Request for Sales
 router.post("/", (req, res, next) => {
     let reply = {};
@@ -48,7 +52,7 @@ router.post("/", (req, res, next) => {
                 message: "Your product has been added successfully",
                 createdOrder: myOrder
             };
-            salesDB.push(reply.createdProduct);
+            salesDB.push(reply.createdOrder);
         } else {
             reply = {
                 message: "Missing fields not allowed"
