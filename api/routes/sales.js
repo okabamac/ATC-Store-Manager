@@ -15,17 +15,14 @@ router.get("/:saleId", (req, res, next) => {
     const id = parseInt(req.params.saleId);
     salesDB.map((order) => {
         if (order.id === id) {
-            return res.status(200).send({
+            res.status(200).send({
                 success: "true",
-                message: "Product retrieved successfully",
+                message: "Order retrieved successfully",
                 order,
             });
         }
     });
-    return res.status(404).send({
-        success: "false",
-        message: "ID does not exist",
-    });
+    // res.status(404).send('Error');
 });
 
 //Handle Post Request for Sales
@@ -65,5 +62,7 @@ router.post("/", (req, res, next) => {
         });
     }
 });
+
+
 
 export default router;
