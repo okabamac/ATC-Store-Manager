@@ -12,7 +12,7 @@ router.get("/", (req, res, next) => {
 
 //Handle GET request for a particular product/byId
 router.get("/:productId", (req, res, next) => {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params.productId);
     productDB.map((product) => {
         if (product.id === id) {
             return res.status(200).send({
@@ -24,7 +24,7 @@ router.get("/:productId", (req, res, next) => {
     });
     return res.status(404).send({
         success: "false",
-        message: "Product does not exist",
+        message: "ID does not exist",
     });
 });
 
