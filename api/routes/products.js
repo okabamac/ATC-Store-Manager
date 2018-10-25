@@ -15,17 +15,14 @@ router.get("/:productId", (req, res, next) => {
     const id = parseInt(req.params.productId);
     productDB.map((product) => {
         if (product.id === id) {
-            return res.status(200).send({
+            res.status(200).send({
                 success: "true",
                 message: "Product retrieved successfully",
                 product,
             });
         }
     });
-    return res.status(404).send({
-        success: "false",
-        message: "ID does not exist",
-    });
+    // res.status(404).send('Error');
 });
 
 //Handle Post Request for Products
