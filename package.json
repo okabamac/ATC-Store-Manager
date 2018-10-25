@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "--exec babel-node jasmine",
+    "test": "jasmine",
     "lint": "eslint",
     "start": "nodemon --exec babel-node server.js"
   },
