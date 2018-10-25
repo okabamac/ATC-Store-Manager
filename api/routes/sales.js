@@ -2,12 +2,15 @@ import express from "express";
 let router = express.Router();
 import salesDB from "../model/data/mockRecordDb";
 
+//Handle GET request for all products
 router.get("/", (req, res, next) => {
     res.status(200).json({
-        message: "Handling GET request to /products"
+        message: "success",
+        salesDB
     });
 });
-router.get("/:saleId", (req, res, next) => {
+
+/*router.get("/:saleId", (req, res, next) => {
     const id = req.params.productId;
     if (id === "special") {
         res.status(200).json({
@@ -20,6 +23,7 @@ router.get("/:saleId", (req, res, next) => {
         });
     }
 });
+*/
 //Handle Post Request for Sales
 router.post("/", (req, res, next) => {
     let reply = {};
