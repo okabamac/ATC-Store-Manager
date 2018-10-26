@@ -81,7 +81,7 @@ main #sign-in-form {
 }
 
 #sign-in-form button {
-  background-color: #2a3542;
+  background-color: #416DEA;
   text-transform: uppercase;
   cursor: pointer;
   color: #fff;
@@ -378,6 +378,10 @@ main[role="dashboard"] #reminder .record-form form p button {
   font-weight: 600;
 }
 
+.image {
+  border-radius: 10%;
+}
+
 .btn {
   cursor: pointer;
   color: #fff;
@@ -454,19 +458,19 @@ main[role="dashboard"] .container .record-stat img {
 
 .overlay {
   position: absolute;
-  top: 80%;
+  top: 4%;
   bottom: 0;
   left: 10px;
   right: 0;
-  height: 50px;
-  width: 360px;
+  height: 250px;
+  width: 20vw;
   opacity: 0;
   transform: scale(0.2);
   text-align: center;
   align-items: center;
   transition: 0.5s ease;
   color: #fff;
-  background-color: #008cba;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .profile:hover .overlay {
