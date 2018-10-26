@@ -8,7 +8,6 @@ ATC Store Manager is an app that helps store owner manage sales and product inve
 
 - [Getting Started](#Getting-Started)
 - [Technology Stack](#Technology-Stack)
-  *Dependencies(#Dependencies)
 - [Installation and Usage](#Installation-and-Usage)
 - [Testing](#Testing)
 - [Feature](#Features)
@@ -17,3 +16,4 @@ ATC Store Manager is an app that helps store owner manage sales and product inve
 - [API Documentation](#API-Documentation)
 - [License](#License)
 - [FAQ](#FAQ)
+
