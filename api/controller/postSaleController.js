@@ -1,8 +1,8 @@
 import salesDB from "../model/data/mockRecordDb";
 export default class postSaleController {
     static postSale(req, res) {
-        const password = parseInt(req.body.password);
-        if (password === 123) {
+        const attendant = req.body.attendant;
+        if (attendant === "attendant 1" || "attendant 2" || "attendant 3") {
             if (!req.body.category) {
                 return res.send({
                     message: "Category is required or invalid parameter"
@@ -46,7 +46,7 @@ export default class postSaleController {
 
         } else {
             return res.send({
-                message: "Access denied or invalid password"
+                message: "Access denied or invalid parameter"
             });
         }
     }

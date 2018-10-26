@@ -6,8 +6,8 @@ export default class productByIdController {
         productDB.map((product) => {
             if (product.id === id) {
                 return res.status(200).send({
-                    success: 'true',
-                    message: 'product retrieved successfully',
+                    success: "true",
+                    message: "product retrieved successfully",
                     product,
                 });
             }
