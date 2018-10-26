@@ -1,38 +1,38 @@
 import productDB from "../model/data/mockProductDb";
 export default class postProductController {
     static postProduct(req, res) {
-        const password = parseInt(req.params.password);
+        const password = parseInt(req.body.password);
         if (password === 123) {
-            if (!req.params.category) {
+            if (!req.body.category) {
                 return res.send({
                     message: "Category is required or invalid parameter"
                 });
             }
-            if (!req.params.name) {
+            if (!req.body.name) {
                 return res.send({
                     message: "Name is required or invalid parameter"
                 });
             }
 
-            if (!req.params.quantity) {
+            if (!req.body.quantity) {
                 return res.send({
                     message: "Quantity is required or invalid parameter"
                 });
             }
-            if (!req.params.price) {
+            if (!req.body.price) {
                 return res.send({
                     message: "Price is required or invalid parameter"
                 });
             }
 
-            if (req.params.category && req.params.name && req.params.quantity && req.params.price) {
+            if (req.body.category && req.body.name && req.body.quantity && req.body.price) {
                 const createdProduct = {
                     id: Date.now(),
                     product: {
-                        category: req.params.category,
-                        name: req.params.name,
-                        quantity: req.params.quantity,
-                        price: req.params.price
+                        category: req.body.category,
+                        name: req.body.name,
+                        quantity: req.body.quantity,
+                        price: req.body.price
                     }
                 };
                 productDB.unshift(createdProduct);

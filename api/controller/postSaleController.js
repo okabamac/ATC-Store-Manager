@@ -1,27 +1,53 @@
 import salesDB from "../model/data/mockRecordDb";
 export default class postSaleController {
     static postSale(req, res) {
-        if (!req.body.title) {
-            return res.status(400).send({
-                success: 'false',
-                message: 'title is required'
-            });
-        } else if (!req.body.description) {
-            return res.status(400).send({
-                success: 'false',
-                message: 'description is required'
+        const password = parseInt(req.body.password);
+        if (password === 123) {
+            if (!req.body.category) {
+                return res.send({
+                    message: "Category is required or invalid parameter"
+                });
+            }
+            if (!req.body.name) {
+                return res.send({
+                    message: "Name is required or invalid parameter"
+                });
+            }
+
+            if (!req.body.quantity) {
+                return res.send({
+                    message: "Quantity is required or invalid parameter"
+                });
+            }
+            if (!req.body.price) {
+                return res.send({
+                    message: "Price is required or invalid parameter"
+                });
+            }
+
+            if (req.body.category && req.body.name && req.body.quantity && req.body.price) {
+                const createdOrder = {
+                    id: Date.now(),
+                    sales: {
+                        attendant: req.body.attendant,
+                        product: req.body.product,
+                        category: req.body.category,
+                        quantity: req.body.quantity,
+                        price: req.body.price,
+                        date: new Date()
+                    }
+                };
+                salesDB.unshift(createdOrder);
+                return res.send({
+                    message: "Order added successfully",
+                    createdOrder
+                });
+            }
+
+        } else {
+            return res.send({
+                message: "Access denied or invalid password"
             });
         }
-        const order = {
-            id: Date.now(),
-            title: req.body.title,
-            description: req.body.description
-        }
-        salesDB.push(order);
-        return res.status(201).send({
-            success: 'true',
-            message: 'order added successfully',
-            order
-        })
     }
 }

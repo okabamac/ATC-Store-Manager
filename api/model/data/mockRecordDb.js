@@ -2,7 +2,6 @@ const sales = [{
         id: 1,
         sales: {
             attendant: "Attendant 1",
-            name: "Ada Mark",
             Product: "I-5923",
             Quantity: 2,
             Price: "$270",
@@ -14,7 +13,6 @@ const sales = [{
         id: 2,
         sales: {
             attendant: "Attendant 1",
-            name: "Ada Mark",
             Product: "I-5923",
             Quantity: 2,
             Price: "$270",
@@ -25,7 +23,6 @@ const sales = [{
         id: 3,
         sales: {
             attendant: "Attendant 1",
-            name: "Ada Mark",
             Product: "I-5923",
             Quantity: 2,
             Price: "$270",
@@ -36,7 +33,6 @@ const sales = [{
         id: 3,
         sales: {
             attendant: "Attendant 1",
-            name: "Ada Mark",
             Product: "I-5923",
             Quantity: 2,
             Price: "$270",
@@ -47,7 +43,6 @@ const sales = [{
         id: 4,
         sales: {
             attendant: "Attendant 1",
-            name: "Ada Mark",
             Product: "I-5923",
             Quantity: 2,
             Price: "$270",
@@ -58,7 +53,6 @@ const sales = [{
         id: 5,
         sales: {
             attendant: "Attendant 1",
-            name: "Ada Mark",
             Product: "I-5923",
             Quantity: 2,
             Price: "$270",
@@ -69,7 +63,6 @@ const sales = [{
         id: 6,
         sales: {
             attendant: "Attendant 1",
-            name: "Ada Mark",
             Product: "I-5923",
             Quantity: 2,
             Price: "$270",
