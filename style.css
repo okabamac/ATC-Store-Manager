@@ -432,7 +432,7 @@ main[role="dashboard"] .container .profile-area {
 }
 
 main[role="dashboard"] .container .record-stat {
-  width: inherit;
+  max-width: 1000px;
 }
 
 main[role="dashboard"] .container .record-stat img {
