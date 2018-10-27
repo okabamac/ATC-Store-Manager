@@ -9,6 +9,7 @@
 body {
   font-family: 'Cardo', serif;
   color: #ffffff;
+  overflow-x: hidden;
   background-color: #f8f8ff;
 }
 
@@ -41,7 +42,7 @@ main[role="login"] {
   background-position: center;
   background-size: cover;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("./img/store1436-02-shoes.jpg");
+    url("./img/shop2.jpg");
 }
 
 main #sign-in-form {
@@ -49,8 +50,15 @@ main #sign-in-form {
   position: relative;
   top: 25vh;
   margin: 0 auto;
-  max-width: 500px;
-  height: 400px;
+  max-width: 450px;
+  height: 350px;
+  background: rgba(130, 130, 130, .3);
+  padding: 20px 22px;
+  border: 1px solid;
+  border-top-color: rgba(255, 255, 255, .4);
+  border-left-color: rgba(255, 255, 255, .4);
+  border-bottom-color: rgba(60, 60, 60, .4);
+  border-right-color: rgba(60, 60, 60, .4);
   padding: 1em;
   color: #fff;
 }
@@ -58,7 +66,7 @@ main #sign-in-form {
 #sign-in-form form {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 35px;
+  grid-gap: 30px;
 }
 
 #sign-in-form label {
@@ -71,7 +79,7 @@ main #sign-in-form {
   width: 100%;
   padding: 1em;
   height: 52px;
-  border-radius: 5px;
+  border-radius: 3.5px;
   outline: #fff;
 }
 
@@ -81,7 +89,7 @@ main #sign-in-form {
 }
 
 #sign-in-form button {
-  background-color: #416DEA;
+  background-color: #263238;
   text-transform: uppercase;
   cursor: pointer;
   color: #fff;
@@ -114,21 +122,12 @@ header[role="banner"] h2 {
 header[role="banner"] #hamburger {
   position: absolute;
   top: 8px;
-  margin-left: 110px;
+  margin-left: 200px;
   font-size: 30px;
+  display: block;
   cursor: pointer;
   user-select: none;
-  display: none;
 }
-
-.show {
-  display: block;
-}
-
-.hide {
-  display: none;
-}
-
 header[role="banner"] ul {
   display: flex;
   float: right;
@@ -165,15 +164,15 @@ header[role="banner"] ul li .logout::before {
 nav[role="navigation"] {
   position: fixed;
   top: 34px;
+  display: block;
   overflow: hidden;
-  width: 250px;
+  width: 240px;
 }
 
 nav[role="navigation"] .main-navigation {
   top: 20px;
   margin: 0;
   padding-top: 30px;
-  position: relative;
   background-color: #2a3542;
   height: 96vh;
 }
@@ -296,23 +295,24 @@ nav[role="navigation"] ul li ul li {
 }
 
 main[role="dashboard"] {
-  position: relative;
-  margin-left: 250px;
+  position: absolute;
   top: 54px;
+  width: 100vw;
+  z-index: -2;
   color: #333;
-  width: calc(100% - 250px);
 }
 
 main[role="dashboard"] .container {
   position: relative;
   max-width: 1200px;
+  padding: 1em;
   top: 40px;
   margin: 0 auto;
   background: #fff;
   border-radius: 5px;
   -webkit-box-shadow: 0px 10px 13px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #3d3939, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 main[role="dashboard"] .container .category-heading {
@@ -380,6 +380,9 @@ main[role="dashboard"] #reminder .record-form form p button {
 
 .image {
   border-radius: 10%;
+  margin-bottom: 20px;
+  height: 200px;
+  width: 300px;
 }
 
 .btn {
@@ -395,6 +398,7 @@ main[role="dashboard"] #reminder .record-form form p button {
 
 .checkout {
   background: #008cba;
+  width: 150px;
 }
 
 .remove {
@@ -420,7 +424,7 @@ main[role="dashboard"] .container select {
 
 main[role="dashboard"] .container .profile-area {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   grid-gap: 35px;
   width: inherit;
   margin: 0 auto;
@@ -443,6 +447,12 @@ main[role="dashboard"] .container .record-stat img {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2), 0px 2px 6px rgba(0, 0, 0, 0.4);
 }
 
+.me {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .product-stat {
   width: 80%;
   display: block;
@@ -450,8 +460,8 @@ main[role="dashboard"] .container .record-stat img {
 }
 
 .product-image {
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
   display: block;
   margin: 0 auto;
 }
@@ -460,10 +470,10 @@ main[role="dashboard"] .container .record-stat img {
   position: absolute;
   top: 4%;
   bottom: 0;
-  left: 10px;
+  left: 6px;
   right: 0;
-  height: 250px;
-  width: 20vw;
+  height: 200px;
+  width: 350px;
   opacity: 0;
   transform: scale(0.2);
   text-align: center;
@@ -506,7 +516,9 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
-
+th {
+  background: #D5E0CC;
+}
 td,
 th {
   border: 1px solid #dddddd;
@@ -519,9 +531,7 @@ td img {
   width: 50px;
 }
 
-tr:nth-child(even) {
-  background-color: #eee;
-}
+
 
 input {
   font-family: 'Roboto', serif;
@@ -533,14 +543,5 @@ main[role="dashboard"] .container .attendants-stats {
 }
 
 @media only screen and (max-width: 600px) {
-  header[role="banner"] #hamburger {
-    display: block;
-  }
-
-  main[role="dashboard"] .welcome,
-  main[role="dashboard"] #reminder,
-  main[role="dashboard"] .container {
-    width: 100vw;
-    margin: 0 auto;
-  }
+  
 }
