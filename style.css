@@ -491,26 +491,11 @@ main[role="dashboard"] .container .record-stat img {
 
 .overlay p {
   display: inline-block;
-  font-size: 25px;
-}
-
-.overlay .about span {}
-
-.overlay .about .price {
-  margin-top: 15px;
-}
-
-.overlay .about i {
-  margin-top: 15px;
-  cursor: pointer;
-  font-size: 25px;
+  font-size: 15px;
 }
 
 .test {
   padding: 10px;
-  display: flex !important;
-  text-align: center;
-  justify-content: space-around;
 }
 
 table {
