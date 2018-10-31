@@ -1,4 +1,12 @@
 import productDB from "../model/data/mockProductDb";
+import users from "../model/data/users"
+import Joi from "joi";
+import {
+    editUserSchema,
+    createUserSchema,
+    checkIdSchema,
+    createProductSchema,
+} from "./validation";
 export default class ProductController {
     static getHomePage(req, res) {
         return res.status(200).json({
@@ -8,43 +16,21 @@ export default class ProductController {
     }
 
     static postProduct(req, res) {
-        const password = parseInt(req.body.password);
-        if (password === 123) {
-            if (!req.body.category || typeof req.body.category != "string") {
-                return res.send({
-                    message: "Category is required or invalid parameter"
-                });
-            }
-            if (!req.body.name || typeof req.body.name !== "string") {
-                return res.send({
-                    message: "Name is required or invalid parameter"
-                });
-            }
-
-            if (!req.body.quantity || typeof req.body.quantity !== "number") {
-                return res.send({
-                    message: "Quantity is required or invalid parameter"
-                });
-            }
-            if (!req.body.price || typeof req.body.quantity !== "number") {
-                return res.send({
-                    message: "Price is required or invalid parameter"
-                });
-            }
-
-            if (
-                req.body.category &&
-                req.body.name &&
-                req.body.quantity &&
-                req.body.price
-            ) {
+        let exit = false;
+        createProductSchema.validate(req.body, {
+                abortEarly: false
+            })
+            .then(validatedCredentials => {
+                exit = true;
                 const createdProduct = {
                     id: Date.now(),
                     product: {
-                        category: req.body.category,
-                        name: req.body.name,
-                        quantity: req.body.quantity,
-                        price: req.body.price
+                        category: validatedCredentials.category,
+                        product: validatedCredentials.product,
+                        quantity: validatedCredentials.quantity,
+                        price: validatedCredentials.price,
+                        url: validatedCredentials.url,
+                        date: new Date(Date.now() - 15000000)
                     }
                 };
                 productDB.unshift(createdProduct);
@@ -52,32 +38,42 @@ export default class ProductController {
                     message: "Product added successfully",
                     createdProduct
                 });
-            }
-        } else {
-            return res.send({
-                message: "Access denied or invalid password"
+
+            })
+            .catch(validationError => {
+                if (exit == false) {
+                    const errorMessage = validationError.details.map(d => d.message);
+                    res.status(400).send(errorMessage);
+                }
             });
-        }
     }
 
 
     static getProductById(req, res) {
-        const id = parseInt(req.params.id);
-        let shouldExit = false;
-        productDB.map((product) => {
-            if (product.id === id) {
-                shouldExit = true;
-                return res.status(200).send({
-                    success: "true",
-                    message: "Product retrieved successfully",
-                    product,
+        let exit = false;
+        checkIdSchema.validate(req.params, {
+                abortEarly: false
+            })
+            .then(validatedId => {
+                productDB.map((product) => {
+                    if (product.id === validatedId.id) {
+                        exit = true;
+                        res.status(200).send({
+                            success: true,
+                            message: "Product retrieved successfully",
+                            product
+                        });
+                    }
                 });
-            }
-        });
-        if (!shouldExit) {
-            return res.send({
-                message: "Invalid ID"
+                res.status(200).send({
+                    message: "Product does not exist"
+                });
+            })
+            .catch(validationError => {
+                if (exit == false) {
+                    const errorMessage = validationError.details.map(d => d.message);
+                    res.status(400).send(errorMessage);
+                }
             });
-        }
     }
 }
