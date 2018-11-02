@@ -7,6 +7,9 @@ import {
     checkIdSchema,
     createProductSchema,
 } from "./validation";
+import {
+    runInNewContext
+} from "vm";
 export default class ProductController {
     static getHomePage(req, res) {
         return res.status(200).json({
@@ -55,7 +58,7 @@ export default class ProductController {
                 abortEarly: false
             })
             .then(validatedId => {
-                productDB.map((product) => {
+                productDB.find(product => {
                     if (product.id === validatedId.id) {
                         exit = true;
                         res.status(200).send({
@@ -76,4 +79,59 @@ export default class ProductController {
                 }
             });
     }
+
+    static editProductById(req, res) {
+        const {
+            id
+        } = req.params;
+        const {
+            category,
+            name,
+            quantity,
+            price,
+            size,
+            url
+        } = req.body;
+
+        const productToEdit = productDB.find(product => product.id == id);
+        if (productToEdit) {
+            ["category", "name", "quantity", "price", "size", "url"].forEach(key => {
+                if (req.body[key]) productToEdit[key] = req.body[key];
+            });
+            res.status(200).send({
+                productToEdit
+            });
+        } else {
+            res.status(200).send({
+                message: "Product does not exist"
+            });
+        }
+
+    }
+
+    static deleteProductById(req, res) {
+        const {
+            id
+        } = req.params;
+
+        const index = productDB.findIndex(product => product.id == id);
+        if (index>0) {
+            productDB.splice(index, 1);
+            res.status(200).send({
+                productDB
+            });
+        } else {
+            res.status(200).send({
+                message: "Product does not exist"
+            });
+        }
+
+    }
+
+
+
+
+    // static sendForm(req, res) {
+    //     return res.sendFile(__controllers + '/form.html');
+    // }
 }

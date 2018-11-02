@@ -1,7 +1,4 @@
-const users = [{
-    username: "admin",
-    password: 123
-}, {
+const attendants = [{
     username: "attendant-1",
     password: 1234
 }, {
@@ -12,4 +9,14 @@ const users = [{
     password: 1236
 }];
 
-export default users;
+
+const admins = [{
+    username: "admin1",
+    password: "$2b$06$5T5q/1u3fQeFhZE9KsfMQ.maznIACuTpAZIMWtZm1LH41AUSAKeMi"
+}];
+
+
+export {
+    attendants,
+    admins
+};

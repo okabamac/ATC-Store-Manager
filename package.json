@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jasmine",
+    "babel-node": "babel-node --presets=latest",
     "lint": "eslint",
     "start": "node --require babel-register server.js"
   },
@@ -20,22 +21,28 @@
   "homepage": "https://github.com/prizemac/ATC-Store-Manager#readme",
   "devDependencies": {
     "eslint": "^5.7.0",
+    "install": "^0.12.2",
     "jasmine-es6": "^0.4.3",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.5"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
+    "babel-core": "^6.26.3",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
+    "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-joi-validation": "^0.3.0",
     "express-joi-validator": "^2.0.0",
     "i": "^0.3.6",
-    "joi": "^14.0.1",
+    "joi": "^14.0.3",
+    "jsonwebtoken": "^8.3.0",
     "multer": "^1.4.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
     "request": "^2.88.0"
   }
 }

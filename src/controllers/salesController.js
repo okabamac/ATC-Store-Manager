@@ -53,7 +53,7 @@ export default class recordController {
                 abortEarly: false
             })
             .then(validatedId => {
-                salesDB.map((order) => {
+                salesDB.find((order) => {
                     if (order.id === validatedId.id) {
                         exit = true;
                         res.status(200).send({

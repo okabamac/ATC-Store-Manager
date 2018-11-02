@@ -6,15 +6,26 @@
 //     if (req.user.authenticated)
 //         return next();
 
-//     // IF A USER ISN'T LOGGED IN, THEN REDIRECT THEM SOMEWHERE
-//     res.redirect('/');
+//     // IF A USER ISN"T LOGGED IN, THEN REDIRECT THEM SOMEWHERE
+//     res.redirect("/");
 // }
-import users from "../model/data/users";
+import bcrypt from "bcrypt";
+import {
+    attendants,
+    admins
+} from "../model/data/users";
+
+
 export default class Authenticated {
     static postProduct(req, res, next) {
-        console.log(req.body.password);
-        users.map((user) => {
-            if (req.body.username == user.username && req.body.password == user.password) {
+        const enteredPassword = bcrypt.hash(req.body.password, 6).then((hash) => {
+            return hash;
+        });
+        enteredPassword.then(function (result) {
+            console.log(result) //will log results.
+        });
+        admins.map((admin) => {
+            if (req.body.username == admin.username && enteredPassword == admin.password) {
                 return next();
             }
         });
