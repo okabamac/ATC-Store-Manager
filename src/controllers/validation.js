@@ -1,4 +1,4 @@
-import Joi from "joi";
+import Joi from 'joi';
 const alphaNum = Joi.string().alphanum();
 const integer = Joi.number().integer();
 const nameSchema = alphaNum.min(2).max(30);
@@ -17,10 +17,20 @@ const createUserSchema = Joi.object().keys({
 
 const createProductSchema = Joi.object().keys({
     category: stringSchema.required(),
-    product: stringSchema.required(),
+    name: stringSchema.required(),
     quantity: integer.required(),
-    price: priceSchema.required(),
+    price: integer.required(),
+    size: stringSchema.required(),
     url: stringSchema.required()
+});
+
+const checkUpdateSchema = Joi.object().keys({
+    category: stringSchema,
+    name: stringSchema,
+    quantity: integer,
+    price: integer,
+    size: stringSchema,
+    url: stringSchema
 });
 
 const createSaleSchema = Joi.object().keys({
@@ -28,7 +38,7 @@ const createSaleSchema = Joi.object().keys({
     category: stringSchema.required(),
     product: stringSchema.required(),
     quantity: integer.required(),
-    price: priceSchema.required()
+    price: integer.required()
 });
 
 const editUserSchema = Joi.object().keys({
@@ -45,5 +55,6 @@ export {
     createUserSchema,
     checkIdSchema,
     createProductSchema,
-    createSaleSchema
+    createSaleSchema,
+    checkUpdateSchema
 };

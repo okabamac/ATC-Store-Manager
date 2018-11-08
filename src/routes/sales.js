@@ -11,6 +11,6 @@ router.get("/", salesController.getHomePage);
 router.get("/:id", salesController.getRecordById);
 
 //Handle Post Request for Sales
-router.post("/", authenticated, salesController.postSale);
+router.post("/", salesController.postSale);
 
 export default router;

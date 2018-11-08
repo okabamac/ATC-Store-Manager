@@ -9,7 +9,7 @@ router.get("/", ProductController.getHomePage);
 router.get("/:id", ProductController.getProductById);
 
 //Handle Post Request for Products
-router.post("/", authenticated.postProduct, ProductController.postProduct);
+router.post("/", ProductController.postProduct);
 
 //Handle Edit Request for a PArticular Product
 router.put("/:id", ProductController.editProductById);
@@ -17,8 +17,12 @@ router.put("/:id", ProductController.editProductById);
 //Handle Delete Request for a Particular Product
 router.delete("/:id", ProductController.deleteProductById);
 
-// router.get("/form", ProductController.sendForm);
-//Edit
+
+
+
+//authenticated.postProduct,
+
+
 
 //router.patch("/:id(\\d+)", productController.editProduct);
 

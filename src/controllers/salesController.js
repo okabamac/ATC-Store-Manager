@@ -1,17 +1,23 @@
-import salesDB from "../model/data/mockRecordDb";
-import Joi from "joi";
+import client from '../model/data/db';
 import {
-    editUserSchema,
-    createUserSchema,
     checkIdSchema,
     createSaleSchema
-} from "./validation";
+} from './validation';
 export default class recordController {
     static getHomePage(req, res) {
-        return res.status(200).json({
-            message: "success",
-            salesDB
-        });
+
+        client.many('SELECT * FROM orders')
+            .then((data) => {
+                res.status(200).send({
+                    message: 'All orders retrieved successfully',
+                    data
+                });
+            })
+            .catch(() => {
+                res.status(404).send({
+                    message: 'Data not available',
+                });
+            });
     }
 
     static postSale(req, res) {
@@ -21,22 +27,26 @@ export default class recordController {
             })
             .then(validatedCredentials => {
                 exit = true;
-                const createdOrder = {
-                    id: Date.now(),
-                    sales: {
-                        attendant: validatedCredentials.attendant,
-                        category: validatedCredentials.category,
-                        product: validatedCredentials.product,
-                        quantity: validatedCredentials.quantity,
-                        price: validatedCredentials.price,
-                        date: new Date(Date.now() - 15000000)
-                    }
-                };
-                salesDB.unshift(createdOrder);
-                return res.send({
-                    message: "Order added successfully",
-                    createdOrder
-                });
+                client.one('INSERT INTO orders(id, attendant, category, product, quantity, price) VALUES($1, $2, $3, $4, $5, $6) RETURNING *', [Date.now(), validatedCredentials.attendant, validatedCredentials.category, validatedCredentials.product, validatedCredentials.quantity, validatedCredentials.price])
+                    .then((data) => {
+                        res.status(200).send({
+                            message: 'Order created successfully',
+                            order: {
+                                id: data.id,
+                                attendant: data.attendant,
+                                category: data.category,
+                                product: data.product,
+                                quantity: data.quantity,
+                                unitPrice: data.price
+                            }
+                        });
+
+                    })
+                    .catch((error) => {
+                        res.status(404).send({
+                            message: error
+                        });
+                    });
 
             })
             .catch(validationError => {
@@ -53,19 +63,19 @@ export default class recordController {
                 abortEarly: false
             })
             .then(validatedId => {
-                salesDB.find((order) => {
-                    if (order.id === validatedId.id) {
-                        exit = true;
-                        res.status(200).send({
-                            success: true,
-                            message: "Order retrieved successfully",
+                client.one('SELECT * FROM orders WHERE id = $1', [validatedId.id])
+                    .then(function (order) {
+                        return res.status(200).send({
+                            message: 'Order retrieved successfully',
                             order
                         });
-                    }
-                });
-                res.status(200).send({
-                    message: "Order does not exist"
-                });
+
+                    })
+                    .catch(function () {
+                        res.status(404).send({
+                            message: 'Order does not exist'
+                        });
+                    });
             })
             .catch(validationError => {
                 if (exit == false) {
