@@ -3,16 +3,17 @@ const alphaNum = Joi.string().alphanum();
 const integer = Joi.number().integer();
 const nameSchema = alphaNum.min(2).max(30);
 const stringSchema = Joi.string();
-const priceSchema = Joi.number().positive().precision(2);
 const surnameSchema = alphaNum.min(2).max(50);
-const birthYearSchema = integer.min(1900).max(2013);
+const birthYearSchema = Joi.date().iso();
 const emailSchema = Joi.string().email();
 
 const createUserSchema = Joi.object().keys({
-    name: nameSchema.required(),
-    surname: surnameSchema.required(),
+    first_name: nameSchema.required(),
+    last_name: surnameSchema.required(),
+    username: surnameSchema.required(),
     birthYear: birthYearSchema.required(),
-    mail: emailSchema.required()
+    mail: emailSchema.required(),
+    password:nameSchema.required()
 });
 
 const createProductSchema = Joi.object().keys({
@@ -24,7 +25,8 @@ const createProductSchema = Joi.object().keys({
     url: stringSchema.required()
 });
 
-const checkUpdateSchema = Joi.object().keys({
+const checkSchema = Joi.object().keys({
+    id: integer.required(),
     category: stringSchema,
     name: stringSchema,
     quantity: integer,
@@ -47,14 +49,10 @@ const editUserSchema = Joi.object().keys({
     birthYear: birthYearSchema,
     mail: emailSchema
 });
-const checkIdSchema = Joi.object().keys({
-    id: integer.required()
-});
 export {
     editUserSchema,
     createUserSchema,
-    checkIdSchema,
     createProductSchema,
     createSaleSchema,
-    checkUpdateSchema
+    checkSchema
 };

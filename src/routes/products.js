@@ -17,13 +17,4 @@ router.put("/:id", ProductController.editProductById);
 //Handle Delete Request for a Particular Product
 router.delete("/:id", ProductController.deleteProductById);
 
-
-
-
-//authenticated.postProduct,
-
-
-
-//router.patch("/:id(\\d+)", productController.editProduct);
-
 export default router;

@@ -50,6 +50,6 @@ app.use(upload.array());
 app.use(express.static('public'));
 app.use('/api/v1/products', productRoutes);
 app.use('/api/v1/sales', salesRoutes);
-// app.use('/api/v1/users', usersRoutes);
+app.use('/api/v1/users', usersRoutes);
 
 export default app;

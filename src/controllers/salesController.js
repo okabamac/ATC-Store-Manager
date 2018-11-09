@@ -1,6 +1,6 @@
 import client from '../model/data/db';
 import {
-    checkIdSchema,
+    checkSchema,
     createSaleSchema
 } from './validation';
 export default class recordController {
@@ -59,7 +59,7 @@ export default class recordController {
 
     static getRecordById(req, res) {
         let exit = false;
-        checkIdSchema.validate(req.params, {
+        checkSchema.validate(req.params, {
                 abortEarly: false
             })
             .then(validatedId => {
