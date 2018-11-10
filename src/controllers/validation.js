@@ -49,10 +49,16 @@ const editUserSchema = Joi.object().keys({
     birthYear: birthYearSchema,
     mail: emailSchema
 });
+
+const checkLoginSchema = Joi.object().keys({
+    mail: emailSchema.required(),
+    password:nameSchema.required()
+});
 export {
     editUserSchema,
     createUserSchema,
     createProductSchema,
     createSaleSchema,
-    checkSchema
+    checkSchema,
+    checkLoginSchema
 };

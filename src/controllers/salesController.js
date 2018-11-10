@@ -21,12 +21,10 @@ export default class recordController {
     }
 
     static postSale(req, res) {
-        let exit = false;
         createSaleSchema.validate(req.body, {
                 abortEarly: false
             })
             .then(validatedCredentials => {
-                exit = true;
                 client.one('INSERT INTO orders(id, attendant, category, product, quantity, price) VALUES($1, $2, $3, $4, $5, $6) RETURNING *', [Date.now(), validatedCredentials.attendant, validatedCredentials.category, validatedCredentials.product, validatedCredentials.quantity, validatedCredentials.price])
                     .then((data) => {
                         res.status(200).send({
@@ -50,15 +48,12 @@ export default class recordController {
 
             })
             .catch(validationError => {
-                if (exit == false) {
                     const errorMessage = validationError.details.map(d => d.message);
                     res.status(400).send(errorMessage);
-                }
             });
     }
 
     static getRecordById(req, res) {
-        let exit = false;
         checkSchema.validate(req.params, {
                 abortEarly: false
             })
@@ -78,10 +73,8 @@ export default class recordController {
                     });
             })
             .catch(validationError => {
-                if (exit == false) {
                     const errorMessage = validationError.details.map(d => d.message);
                     res.status(400).send(errorMessage);
-                }
             });
     }
 

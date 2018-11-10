@@ -21,13 +21,11 @@ export default class ProductController {
   }
 
   static postProduct(req, res) {
-    let exit = false;
     createProductSchema
       .validate(req.body, {
         abortEarly: false
       })
       .then(validatedCredentials => {
-        exit = true;
         client
           .one(
             'INSERT INTO products(id, category, name, quantity, price, size, image_url) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *',
@@ -62,15 +60,12 @@ export default class ProductController {
           });
       })
       .catch(validationError => {
-        if (exit == false) {
-          const errorMessage = validationError.details.map(d => d.message);
-          res.status(400).send(errorMessage);
-        }
+        const errorMessage = validationError.details.map(d => d.message);
+        res.status(400).send(errorMessage);
       });
   }
 
   static getProductById(req, res) {
-    let exit = false;
     checkSchema
       .validate(req.params, {
         abortEarly: false
@@ -91,15 +86,15 @@ export default class ProductController {
           });
       })
       .catch(validationError => {
-        if (exit == false) {
-          const errorMessage = validationError.details.map(d => d.message);
-          res.status(400).send(errorMessage);
-        }
+        const errorMessage = validationError.details.map(d => d.message);
+        res.status(400).send(errorMessage);
       });
   }
 
   static editProductById(req, res, next) {
-    const { id } = req.params;
+    const {
+      id
+    } = req.params;
     checkSchema
       .validate((req.body, req.params), {
         abortEarly: false
@@ -120,7 +115,7 @@ export default class ProductController {
         let index = 0;
         client
           .query('SELECT id FROM products WHERE id=($1)', [id])
-          .then((id)=> {
+          .then((id) => {
             if (id != '') {
               fields.forEach(field => {
                 index = index++;
@@ -131,11 +126,10 @@ export default class ProductController {
                   message: 'Product updated successfully'
                 });
               }
-            }
-            else {
-                return res.status(404).send({
-                    message: 'ID not found'
-                });
+            } else {
+              return res.status(404).send({
+                message: 'ID not found'
+              });
             }
           })
           .catch(err => {
@@ -149,7 +143,9 @@ export default class ProductController {
   }
 
   static deleteProductById(req, res, next) {
-    const { id } = req.params;
+    const {
+      id
+    } = req.params;
 
     checkSchema
       .validate(req.params, {
@@ -158,13 +154,13 @@ export default class ProductController {
       .then(() => {
         client
           .result('DELETE FROM products WHERE id=($1)', [id])
-          .then(function(result) {
+          .then(function (result) {
             res.status(200).json({
               status: 'success',
               message: `Removed ${result.rowCount} product`
             });
           })
-          .catch(function(err) {
+          .catch(function (err) {
             return next(err);
           });
       })
