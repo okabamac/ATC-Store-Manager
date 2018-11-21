@@ -4,6 +4,7 @@ import salesRoutes from './src/routes/sales';
 import usersRoutes from './src/routes/user';
 import bodyParser from 'body-parser';
 import multer from 'multer';
+import cors from 'cors';
 const upload = multer();
 const app = express();
 
@@ -13,6 +14,9 @@ const app = express();
 // } from './src/model/data/users';
 // app.set('view engine', 'html');
 // app.engine('html', hbs.__express);
+
+//for CORS
+app.use(cors());
 
 // for parsing application/xwww-
 app.use(

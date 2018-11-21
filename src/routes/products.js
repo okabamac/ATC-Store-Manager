@@ -1,20 +1,20 @@
 import express from "express";
 let router = express.Router();
-import authenticated from "../controllers/authentication";
+import Authenticated from "../controllers/authentication";
 import ProductController from "../controllers/productController";
 //Handle GET request for all products
-router.get("/", ProductController.getHomePage);
+router.get("/", Authenticated.adminAuth, ProductController.getHomePage);
 
 //Handle GET request for a particular product/byId
-router.get("/:id", ProductController.getProductById);
+router.get("/:id", Authenticated.adminAuth, ProductController.getProductById);
 
 //Handle Post Request for Products
-router.post("/", ProductController.postProduct);
+router.post("/", Authenticated.adminAuth, ProductController.postProduct);
 
 //Handle Edit Request for a PArticular Product
-router.put("/:id", ProductController.editProductById);
+router.put("/:id", Authenticated.adminAuth, ProductController.editProductById);
 
 //Handle Delete Request for a Particular Product
-router.delete("/:id", ProductController.deleteProductById);
+router.delete("/:id", Authenticated.adminAuth, ProductController.deleteProductById);
 
 export default router;

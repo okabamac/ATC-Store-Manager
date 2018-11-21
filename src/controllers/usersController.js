@@ -3,10 +3,9 @@ import {
     createUserSchema,
     checkLoginSchema
 } from './validation';
-
+const jwt = require('jsonwebtoken');
 import bcrypt from 'bcrypt';
 const saltRounds = 10;
-
 export default class UsersController {
     static signup(req, res) {
         createUserSchema
@@ -75,8 +74,15 @@ export default class UsersController {
                     .then((data) => {
                         bcrypt.compare(validatedCredentials.password, data[0].password, function (err, yes) {
                             if (yes) {
+                                const token = jwt.sign({
+                                    email: data[0].email,
+                                    userId: data[0].id
+                                }, 'secret', {
+                                    expiresIn: '1h'
+                                });
                                 return res.status(200).send({
-                                    message: 'You are now signed in'
+                                    message: 'You are now signed in',
+                                    token: token
                                 });
                             } else {
                                 return res.status(201).send({
