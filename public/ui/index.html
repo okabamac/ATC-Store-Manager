@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <base href="/">
+    <title>Ene Shoes</title>
+    <link href="https://fonts.googleapis.com/css?family=Cardo|Charmonman|Mali|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav role="login">
+        <h2>Ene Store Manager</h2>
+
+    </nav>
+    <main role='login'>
+        <div class="overlay"></div>
+        <div id="sign-in-form">
+
+            <form  method="POST" id="userLogin">
+                <legend>Sign in to your account</legend>
+                <p>
+                    <label for="email"></label>
+                    <input type="email" placeholder="Enter email" name="email" id="email">
+                </p>
+                <p>
+                    <label for="password"></label>
+                    <input type="password" placeholder="Enter password" name="password" id="password">
+                </p>
+                <p>
+                    <button type="submit">Log In</button>
+                </p>
+                <p id="message"></p>
+                <p>Click <a href="passwordResetPage.html">here</a>
+                    to reset
+                    password</p>
+            </form>
+
+        </div>
+    </main>
+
+
+    <script type="text/javascript">
+        document.getElementById('userLogin').addEventListener('submit', function userLogin(event) {
+            event.preventDefault();
+            let message = document.getElementById('message');
+            let mail = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            fetch('http://localhost:3000/api/v1/users/login', {
+                method: "POST",
+                redirect: 'follow',
+                body: JSON.stringify({
+                    mail: `${mail}`,
+                    password: `${password}`
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                credentials: "same-origin"
+            }).then(function (response) {
+                if (response.status == 200 ) {
+                    window.location.href = response.url;
+                } else {
+                     message.innerHTML = 'Invalid credentials';
+                }
+            }, function (error) {
+               console.log(error.message)
+            })
+        });
+    </script>
+</body>
+
+</html>

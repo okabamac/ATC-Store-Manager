@@ -10,10 +10,10 @@ const emailSchema = Joi.string().email();
 const createUserSchema = Joi.object().keys({
     first_name: nameSchema.required(),
     last_name: surnameSchema.required(),
-    username: surnameSchema.required(),
     birthYear: birthYearSchema.required(),
     mail: emailSchema.required(),
-    password:nameSchema.required()
+    password:nameSchema.required(),
+    admin: stringSchema
 });
 
 const createProductSchema = Joi.object().keys({

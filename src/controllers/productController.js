@@ -4,7 +4,7 @@ import {
   checkSchema
 } from './validation';
 export default class ProductController {
-  static getHomePage(res) {
+  static getHomePage(req, res) {
     client
       .many('SELECT * FROM products')
       .then(data => {

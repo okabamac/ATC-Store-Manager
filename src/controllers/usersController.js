@@ -21,14 +21,14 @@ export default class UsersController {
                                 const date = validatedCredentials.birthYear.toString().split(" ").slice(0, 4).join(" ");
                                 client
                                     .query(
-                                        'INSERT INTO users (first_name, last_name, birth_year, email, username, password) VALUES($1, $2, $3, $4, $5, $6)',
+                                        'INSERT INTO users (first_name, last_name, birth_year, email, password, admin) VALUES($1, $2, $3, $4, $5, $6)',
                                         [
                                             validatedCredentials.first_name,
                                             validatedCredentials.last_name,
                                             date,
                                             validatedCredentials.mail,
-                                            validatedCredentials.username,
-                                            hash
+                                            hash,
+                                            validatedCredentials.admin
                                         ]
                                     )
                                     .then(() => {
@@ -70,20 +70,22 @@ export default class UsersController {
             })
             .then(validatedCredentials => {
                 client
-                    .query('SELECT email, password FROM users WHERE email=($1)', [validatedCredentials.mail])
+                    .query('SELECT email, password, admin FROM users WHERE email=($1)', [validatedCredentials.mail])
                     .then((data) => {
                         bcrypt.compare(validatedCredentials.password, data[0].password, function (err, yes) {
                             if (yes) {
                                 const token = jwt.sign({
                                     email: data[0].email,
                                     userId: data[0].id
-                                }, 'secret', {
+                                }, '^^*&&*)**@(2863448533', {
                                     expiresIn: '1h'
                                 });
-                                return res.status(200).send({
-                                    message: 'You are now signed in',
-                                    token: token
-                                });
+                                if(data[0].admin == 'admin'){
+                                    res.redirect(303, '/enestoresmanager/pages/home1.html');
+                                    return;
+                                }
+                                res.redirect(303, '/enestoresmanager/pages/home2.html');
+                                return;
                             } else {
                                 return res.status(201).send({
                                     message: 'Incorrect password'

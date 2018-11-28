@@ -19,10 +19,7 @@ client.query('CREATE TABLE IF NOT EXISTS products(id NUMERIC not null, category 
 client.query('CREATE TABLE IF NOT EXISTS orders(id NUMERIC not null, attendant VARCHAR(40) not null, category VARCHAR(40) not null,  product VARCHAR(40) not null,  quantity SERIAL not null, price SERIAL not null)', (err, done) => {
   done();
 });
-client.query('CREATE TABLE IF NOT EXISTS users(id serial PRIMARY KEY not null,  first_name VARCHAR(50) not null, last_name VARCHAR(50) not null, birth_year VARCHAR(254) not null, email VARCHAR(254) not null, username VARCHAR(50) not null, password VARCHAR(2000) not null)', (err, done) => {
-  done();
-});
-client.query('CREATE TABLE IF NOT EXISTS admins(id serial PRIMARY KEY not null,  first_name VARCHAR(50) not null, last_name VARCHAR(50) not null, birth_year VARCHAR(254) not null, email VARCHAR(254) not null, username VARCHAR(50) not null, password VARCHAR(2000) not null)', (err, done) => {
+client.query('CREATE TABLE IF NOT EXISTS users(id serial PRIMARY KEY not null,  first_name VARCHAR(50) not null, last_name VARCHAR(50) not null, birth_year VARCHAR(254) not null, email VARCHAR(254) not null, password VARCHAR(2000) not null, admin VARCHAR(100))', (err, done) => {
   done();
 });
 

@@ -3,18 +3,18 @@ let router = express.Router();
 import Authenticated from "../controllers/authentication";
 import ProductController from "../controllers/productController";
 //Handle GET request for all products
-router.get("/", Authenticated.adminAuth, ProductController.getHomePage);
+router.get("/", ProductController.getHomePage);
 
 //Handle GET request for a particular product/byId
-router.get("/:id", Authenticated.adminAuth, ProductController.getProductById);
+router.get("/:id", ProductController.getProductById);
 
 //Handle Post Request for Products
-router.post("/", Authenticated.adminAuth, ProductController.postProduct);
+router.post("/", ProductController.postProduct);
 
 //Handle Edit Request for a PArticular Product
-router.put("/:id", Authenticated.adminAuth, ProductController.editProductById);
+router.put("/:id", ProductController.editProductById);
 
 //Handle Delete Request for a Particular Product
-router.delete("/:id", Authenticated.adminAuth, ProductController.deleteProductById);
+router.delete("/:id", ProductController.deleteProductById);
 
 export default router;
