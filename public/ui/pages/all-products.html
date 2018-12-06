@@ -29,15 +29,17 @@
     <ul class="main-navigation">
         <li class="dashboard"><a href="./enestoresmanager/pages/home2.html" class="element">Dashboard</a></li>
         <li class="carted"><a href="./enestoresmanager/pages/add-to-cart.html" class="element">Add to cart</a> </li>
-        <li class="all-products active"><a href="./enestoresmanager/pages/all-products.html" class="element">All Products</a> </li>
+        <li class="all-products active"><a href="./enestoresmanager/pages/all-products.html" class="element">All
+                Products</a> </li>
         <li class="recorded"><a href="./enestoresmanager/pages/my-record.html" class="element">My Records</a> </li>
-        <li class="attendants-profile"><a href="./enestoresmanager/pages/attendants-profile.html" class="element">My Profile</a></li>
+        <li class="attendants-profile"><a href="./enestoresmanager/pages/attendants-profile.html" class="element">My
+                Profile</a></li>
     </ul>
 </nav>
 <main role="dashboard" id="dashboard">
     <div class="container">
         <div>
-            <select>
+            <select id="list">
                 <option value="">All</option>
                 <option value="">Shoes</option>
                 <option value="">Bags</option>
@@ -54,65 +56,29 @@
                         <th>Image</th>
                         <th>Quantity In Stock</th>
                         <th>Min Qty Allowed</th>
+                        <th>Size</th>
                         <th>Price/Unit</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>I-5923, Adidas</td>
-                        <td><img src="../img/shoe.jpg"></td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>$45</td>
-                    </tr>
-                    <tr>
-                        <td>I-5923, Adidas</td>
-                        <td><img src="../img/shoe.jpg"></td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>$45</td>
-                    </tr>
-                    <tr>
-                        <td>I-5923, Adidas</td>
-                        <td><img src="../img/shoe.jpg"></td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>$45</td>
-                    </tr>
+                <tbody id='shoesBody'>
 
+                </tbody>
             </table>
 
             <div class="attendants-stats">
                 <h2>Watches</h2>
                 <table>
-                    <tr>
-                        <th>Product</th>
-                        <th>Image</th>
-                        <th>Quantity In Stock</th>
-                        <th>Min Qty Allowed</th>
-                        <th>Price/Unit</th>
-                    </tr>
-                    <tr>
-                        <td>I-5923, Adidas</td>
-                        <td><img src="../img/watches.jpg"></td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>$45</td>
-                    </tr>
-                    <tr>
-                        <td>I-5923, Adidas</td>
-                        <td><img src="../img/watches.jpg"></td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>$45</td>
-                    </tr>
-                    <tr>
-                        <td>I-5923, Adidas</td>
-                        <td><img src="../img/watches.jpg"></td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>$45</td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Image</th>
+                            <th>Quantity In Stock</th>
+                            <th>Min Qty Allowed</th>
+                            <th>Price/Unit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
                     </tbody>
                 </table>
             </div>
@@ -120,34 +86,18 @@
             <div class="attendants-stats">
                 <h2>Bags</h2>
                 <table>
-                    <tr>
-                        <th>Product</th>
-                        <th>Image</th>
-                        <th>Quantity In Stock</th>
-                        <th>Min Qty Allowed</th>
-                        <th>Price/Unit</th>
-                    </tr>
-                    <tr>
-                        <td>I-5923, Adidas</td>
-                        <td><img src="../img/bags.jpg"></td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>$45</td>
-                    </tr>
-                    <tr>
-                        <td>I-5923, Adidas</td>
-                        <td><img src="../img/bags.jpg"></td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>$45</td>
-                    </tr>
-                    <tr>
-                        <td>I-5923, Adidas</td>
-                        <td><img src="../img/bags.jpg"></td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>$45</td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Image</th>
+                            <th>Quantity In Stock</th>
+                            <th>Min Qty Allowed</th>
+                            <th>Price/Unit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
 
                 </table>
 
@@ -156,38 +106,92 @@
             <div class="attendants-stats">
                 <h2>Jackets</h2>
                 <table>
-                    <tr>
-                        <th>Product</th>
-                        <th>Image</th>
-                        <th>Quantity In Stock</th>
-                        <th>Min Qty Allowed</th>
-                        <th>Price/Unit</th>
-                    </tr>
-                    <tr>
-                        <td>I-5923, Adidas</td>
-                        <td><img src="../img/jackets.jpg"></td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>$45</td>
-                    </tr>
-                    <tr>
-                        <td>I-5923, Adidas</td>
-                        <td><img src="../img/jackets.jpg"></td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>$45</td>
-                    </tr>
-                    <tr>
-                        <td>I-5923, Adidas</td>
-                        <td><img src="../img/jackets.jpg"></td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>$45</td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Image</th>
+                            <th>Quantity In Stock</th>
+                            <th>Min Qty Allowed</th>
+                            <th>Price/Unit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
 
                 </table>
 </main>
-<script src="../main.js">
+<script src="../main.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+
+        function createNode(element) {
+            return document.createElement(element);
+        }
+
+        function append(parent, el) {
+            return parent.appendChild(el);
+        }
+
+        const tbody = document.getElementById('shoesBody');
+        const url = 'http://localhost:3000/api/v1/products';
+        fetch(url)
+            .then((resp) => resp.json())
+            .then(function (data) {
+                let shoes = data.data;
+                return shoes.map(function (shoe) {
+                    let tr = createNode('tr'),
+                        name = createNode('td'),
+                        imageTd = createNode('td'),
+                        img = createNode('img'),
+                        qtyInStock = createNode('td'),
+                        minQtyAllowed = createNode('td'),
+                        size = createNode('td'),
+                        price_per_unit = createNode('td');
+                    img.src = shoe.image_url;
+                    name.innerHTML = `${shoe.name}`;
+                    qtyInStock.innerHTML = `${shoe.quantity_in_stock}`;
+                    minQtyAllowed.innerHTML = `${shoe.quantity_remaining}`;
+                    size.innerHTML = `${shoe.size}`;
+                    price_per_unit.innerHTML = `${shoe.price}`;
+                    append(imageTd, img);
+                    append(tr, name);
+                    append(tr, imageTd);
+                    append(tr, qtyInStock);
+                    append(tr, minQtyAllowed);
+                    append(tr, size);
+                    append(tr, price_per_unit);
+                    append(tbody, tr);
+                })
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        const showHide = function () {
+            alert(select);
+            if (this.selectedIndex != 0) {
+                //hide the divs
+                for (var i = 0; i < select.length; i++) {
+                    select[i].style.display = 'none';
+                }
+                //unhide the selected div
+                document.getElementById('div' + this.value).style.display = 'block';
+            }
+        };
+
+        // get the divs to show/hide
+        const select = document
+            .getElementsByClassName("attendants-stat")
+            // .getElementsByTagName("table");
+
+        document
+            .getElementById('list')
+            .addEventListener('change', showHide);
+
+
+    };
 </script>
 
 </html>

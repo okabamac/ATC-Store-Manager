@@ -24,8 +24,6 @@ app.use(
     })
 );
 
-// https://www.google.com.ng/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiBnYHnqvfeAhXox4UKHaJ7CvYQjRx6BAgBEAU&url=https%3A%2F%2Fwww.shoecarnival.com%2Fwomens_adidas_cloudfoam_qt_racer_sneakers%2F92057.html&psig=AOvVaw2qZUXdikhHu5WA_U1AJ_Vq&ust=1543502967831767
-
 app.use(express.static(path.join(__dirname, 'public/ui')));
 // development error handler
 // will print stacktrace
@@ -49,7 +47,8 @@ app.use(function (err, req, res, next) {
         });
 });
 
-//views
+//session
+// app.use(session());
 
 // for parsing application/json
 app.use(bodyParser.json());

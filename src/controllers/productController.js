@@ -28,12 +28,13 @@ export default class ProductController {
       .then(validatedCredentials => {
         client
           .one(
-            'INSERT INTO products(id, category, name, quantity, price, size, image_url) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+            'INSERT INTO products(id, category, name, quantity_in_stock, quantity_remaining, price, size, image_url) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
             [
               Date.now(),
               validatedCredentials.category,
               validatedCredentials.name,
-              validatedCredentials.quantity,
+              validatedCredentials.quantity_in_stock,
+              validatedCredentials.quantity_remaining,
               validatedCredentials.price,
               validatedCredentials.size,
               validatedCredentials.url
@@ -46,7 +47,8 @@ export default class ProductController {
                 id: data.id,
                 category: data.category,
                 name: data.product,
-                quantity: data.quantity,
+                quantity_in_stock: data.quantity_in_stock,
+                quantity_remaining: data.quantity_remaining,
                 unitPrice: data.price,
                 size: data.size,
                 url: data.image_url

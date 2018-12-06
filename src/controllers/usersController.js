@@ -4,6 +4,7 @@ import {
     checkLoginSchema
 } from './validation';
 const jwt = require('jsonwebtoken');
+import jwtKey from '../../secrets/jwt_config';
 import bcrypt from 'bcrypt';
 const saltRounds = 10;
 export default class UsersController {
@@ -18,7 +19,7 @@ export default class UsersController {
                     .then((email) => {
                         if (email == '') {
                             bcrypt.hash(validatedCredentials.password, saltRounds, (err, hash) => {
-                                const date = validatedCredentials.birthYear.toString().split(" ").slice(0, 4).join(" ");
+                                const date = validatedCredentials.birthYear.toString().split(' ').slice(0, 4).join(' ');
                                 client
                                     .query(
                                         'INSERT INTO users (first_name, last_name, birth_year, email, password, admin) VALUES($1, $2, $3, $4, $5, $6)',
@@ -77,9 +78,10 @@ export default class UsersController {
                                 const token = jwt.sign({
                                     email: data[0].email,
                                     userId: data[0].id
-                                }, '^^*&&*)**@(2863448533', {
-                                    expiresIn: '1h'
+                                }, jwtKey, {
+                                    expiresIn: '60'
                                 });
+                                
                                 if(data[0].admin == 'admin'){
                                     res.redirect(303, '/enestoresmanager/pages/home1.html');
                                     return;

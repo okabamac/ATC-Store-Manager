@@ -414,14 +414,6 @@ main[role="dashboard"] #reminder .record-form form p button {
   background: #008cba;
 }
 
-.add {
-  background: green;
-}
-
-.save {
-  background: green;
-}
-
 main[role="dashboard"] .container select {
   position: relative;
   left: 80%;

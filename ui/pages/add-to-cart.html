@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ene Store Manager</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cardo|Charmonman|Mali|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<header role="banner">
+    <h2>Okaba</h2>
+    <p id="hamburger">&#9776;</p>
+    <ul class='avatar-login'>
+        <li class="avatar">
+            <a href=""><img src="../img/apex.jpeg"></a>
+        </li>
+        <li><a href="../index.html" class="logout">Logout</a></li>
+    </ul>
+</header>
+
+
+<nav role='navigation' id="navigation">
+    <ul class="main-navigation">
+        <li class="dashboard"><a href="./home2.html" class="element">Dashboard</a></li>
+        <li class="carted active"><a href="./add-to-cart.html" class="element">Add to cart</a> </li>
+        <li class="all-products"><a href="./all-products.html" class="element">All Products</a> </li>
+        <li class="recorded"><a href="./my-record.html" class="element">My Records</a> </li>
+        <li class="attendants-profile"><a href="./attendants-profile.html" class="element">My Profile</a></li>
+    </ul>
+</nav>
+<main role="dashboard" id="dashboard">
+    <div class="welcome">
+        <h3>Cart</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</td>
+                    <th>Products</td>
+                    <th>Quantity</td>
+                    <th>Price/Unit</td>
+                    <th>Modify</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ada Mark</td>
+                    <td>I-5923, Adidas</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td><button class="btn remove">Remove</button><button class="btn edit">Edit</button></td>
+                </tr>
+                <tr>
+                    <td>Ada Mark</td>
+                    <td>I-5923, Adidas</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td><button class="btn remove">Remove</button><button class="btn edit">Edit</button></td>
+                </tr>
+                <tr>
+                    <td>Ada Mark</td>
+                    <td>I-5923, Adidas</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td><button class="btn remove">Remove</button><button class="btn edit">Edit</button></td>
+                </tr>
+            </tbody>
+
+        </table>
+        <button class="checkout btn">Checkout</button>
+    </div>
+
+    <div id="reminder">
+        <div class="record-form">
+            <form action="">
+                <p>
+                    <label for="name">Category</label>
+                    <input type="text" name="category">
+                </p>
+                <p>
+                    <label for="name">Product</label>
+                    <input type="text" name="name">
+                </p>
+
+                <p>
+                    <label for="username">Quantity</label>
+                    <input type="text" name="username">
+                </p>
+
+                <p>
+                    <label for="price">Price/Unit</label>
+                    <input type="text" name="price">
+                </p>
+
+                <p>
+                    <button class="add">Add</button>
+                </p>
+            </form>
+        </div>
+    </div>
+</main>
+<script src="../main.js">
+</script>
+
+</html>

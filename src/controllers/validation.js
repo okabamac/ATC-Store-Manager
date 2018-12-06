@@ -19,7 +19,8 @@ const createUserSchema = Joi.object().keys({
 const createProductSchema = Joi.object().keys({
     category: stringSchema.required(),
     name: stringSchema.required(),
-    quantity: integer.required(),
+    quantity_in_stock: integer.required(),
+    quantity_remaining: integer.required(),
     price: integer.required(),
     size: stringSchema.required(),
     url: stringSchema.required()
