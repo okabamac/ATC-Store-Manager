@@ -12,18 +12,16 @@ const createUserSchema = Joi.object().keys({
     last_name: surnameSchema.required(),
     birthYear: birthYearSchema.required(),
     mail: emailSchema.required(),
-    password:nameSchema.required(),
+    password: nameSchema.required(),
     admin: stringSchema
 });
 
 const createProductSchema = Joi.object().keys({
     category: stringSchema.required(),
-    name: stringSchema.required(),
-    quantity_in_stock: integer.required(),
-    quantity_remaining: integer.required(),
+    product: stringSchema.required(),
+    quantity: integer.required(),
     price: integer.required(),
-    size: stringSchema.required(),
-    url: stringSchema.required()
+    mimetype: stringSchema.regex(/^[image/*]/).required()
 });
 
 const checkSchema = Joi.object().keys({
@@ -53,7 +51,7 @@ const editUserSchema = Joi.object().keys({
 
 const checkLoginSchema = Joi.object().keys({
     mail: emailSchema.required(),
-    password:nameSchema.required()
+    password: nameSchema.required()
 });
 export {
     editUserSchema,

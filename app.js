@@ -4,10 +4,8 @@ import salesRoutes from './src/routes/sales';
 import usersRoutes from './src/routes/user';
 import pagesRoutes from './src/routes/pages';
 import bodyParser from 'body-parser';
-import multer from 'multer';
-import session from 'session';
+// import session from 'session';
 import cors from 'cors';
-const upload = multer();
 const app = express();
 const path = require('path');
 
@@ -53,7 +51,6 @@ app.use(function (err, req, res, next) {
 // for parsing application/json
 app.use(bodyParser.json());
 // for parsing multipart/form-data
-app.use(upload.array());
 app.use('/enestoresmanager', pagesRoutes);
 app.use('/api/v1/products', productRoutes);
 app.use('/api/v1/sales', salesRoutes);

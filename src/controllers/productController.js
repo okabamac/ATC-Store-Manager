@@ -3,6 +3,7 @@ import {
   createProductSchema,
   checkSchema
 } from './validation';
+const fs = require('fs');
 export default class ProductController {
   static getHomePage(req, res) {
     client
@@ -21,38 +22,28 @@ export default class ProductController {
   }
 
   static postProduct(req, res) {
+    console.log(req.file.mimetype);
     createProductSchema
-      .validate(req.body, {
+      .validate(req.body, req.file.mimetype, {
         abortEarly: false
       })
       .then(validatedCredentials => {
         client
           .one(
-            'INSERT INTO products(id, category, name, quantity_in_stock, quantity_remaining, price, size, image_url) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+            'INSERT INTO products(id, category, name, quantity_in_stock, quantity_remaining, price, image) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *',
             [
               Date.now(),
               validatedCredentials.category,
-              validatedCredentials.name,
-              validatedCredentials.quantity_in_stock,
-              validatedCredentials.quantity_remaining,
+              validatedCredentials.product,
+              validatedCredentials.quantity,
+              validatedCredentials.quantity,
               validatedCredentials.price,
-              validatedCredentials.size,
-              validatedCredentials.url
+              req.file.originalname
             ]
           )
           .then(data => {
             res.status(200).send({
-              message: 'Product added successfully',
-              product: {
-                id: data.id,
-                category: data.category,
-                name: data.product,
-                quantity_in_stock: data.quantity_in_stock,
-                quantity_remaining: data.quantity_remaining,
-                unitPrice: data.price,
-                size: data.size,
-                url: data.image_url
-              }
+              message: 'Product added successfully'
             });
           })
           .catch(error => {
@@ -155,9 +146,15 @@ export default class ProductController {
       })
       .then(() => {
         client
-          .result('DELETE FROM products WHERE id=($1)', [id])
+          .result('DELETE FROM products WHERE id=($1) RETURNING image_url', [id])
           .then(function (result) {
-            res.status(200).json({
+            const path = `../../public/ui/img/uploads/${result}`;
+            fs.unlink(path, (err) => {
+              if (err) {
+                console.error(err)
+              }
+            })
+            return res.status(200).json({
               status: 'success',
               message: `Removed ${result.rowCount} product`
             });

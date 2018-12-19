@@ -44,17 +44,16 @@
 
 
     <script type="text/javascript">
-        document.getElementById('userLogin').addEventListener('submit', function userLogin(event) {
+        document.getElementById('userLogin').addEventListener('submit', (event) => {
             event.preventDefault();
             let message = document.getElementById('message');
-            let mail = document.getElementById('email').value;
-            let password = document.getElementById('password').value;
+            const formData = new FormData(document.getElementById('userLogin'));
             fetch('http://localhost:3000/api/v1/users/login', {
                 method: "POST",
                 redirect: 'follow',
                 body: JSON.stringify({
-                    mail: `${mail}`,
-                    password: `${password}`
+                    mail: `${formData.get('email')}`,
+                    password: `${formData.get('password')}`
                 }),
                 headers: {
                     "Content-Type": "application/json"
@@ -62,7 +61,7 @@
                 credentials: "same-origin"
             }).then(function (response) {
                 if (response.status == 200 ) {
-                    window.location.href = response.url;
+                    window.location.replace(response.url);
                 } else {
                      message.innerHTML = 'Invalid credentials';
                 }

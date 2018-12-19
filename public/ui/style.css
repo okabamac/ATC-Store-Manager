@@ -41,8 +41,7 @@ main[role="login"] {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("./img/shop2.jpg");
+  background-image: url("./img/shop2.jpg");
 }
 
 main #sign-in-form {
@@ -354,7 +353,6 @@ main[role="dashboard"] #reminder .record-form form {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px;
   top: 0px;
-  font-family: 'Charmonman', cursive;
   border-collapse: collapse;
 }
 
